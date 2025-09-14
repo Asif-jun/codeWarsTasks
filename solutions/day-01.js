@@ -24,3 +24,30 @@ function multiply(a, b) {
 const makeNegative = num => {
   return -Math.abs(num)
 }
+
+// Задача
+// Вы получили массив чисел и вернули сумму всех положительных единиц.
+// Пример
+// [1, -4, 7, 12] =>
+// 1
+// +
+// 7
+// +
+// 12
+// =
+// 20
+// 1+7+12=20
+// Примечание
+// Если суммировать нечего, сумма по умолчанию равна 0.
+
+const positiveSum = arr => {
+  let acc = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      acc += arr[i]
+    }
+  }
+  return acc
+}
+
+console.log(positiveSum([1, -4, 7, 12]))
