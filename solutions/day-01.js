@@ -50,4 +50,20 @@ const positiveSum = arr => {
   return acc
 }
 
-console.log(positiveSum([1, -4, 7, 12]))
+const positiveSum1 = arr => {
+  return arr.reduce((acc, val) => {
+    return acc + (val > 0 ? val : 0)
+  }, 0)
+}
+
+// console.log(positiveSum([1, -4, 7, 12]))
+
+// Дополните решение так, чтобы оно перевернуло переданную ему строку.
+// 'world' => 'dlrow'
+// 'word' => 'drow'
+
+const solution = str => {
+  return str.split('').reverse().join('')
+}
+
+console.log(solution('world'))
