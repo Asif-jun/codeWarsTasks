@@ -66,4 +66,39 @@ const solution = str => {
   return str.split('').reverse().join('')
 }
 
-console.log(solution('world'))
+// console.log(solution('world'))
+
+// Нам нужна функция, которая преобразует число (целое) в строку.
+// Какие способы сделать это вы знаете?
+
+// Примеры (вход -> выход):
+// 123 -> "123"
+// 999 -> "999"
+// -100 -> "-100"
+
+const numberToString = num => {
+  return num.toString()
+}
+
+// console.log(numberToString(123))
+
+// Дополните метод, который принимает логическое значение и возвращает строку «Да» для значения «истина» или строку «Нет» для значения «ложь».
+
+const boolToWord = bool => {
+  return bool !== true ? 'No' : 'Yes'
+}
+
+// console.log(boolToWord(0))
+
+// Дополните функцию квадратной суммы так, чтобы она возводила в квадрат каждое переданное ей число, а затем суммировала результаты.
+// Например, для [1, 2, 2] она должна вернуть 9, потому что [1, 2, 2] = 9
+
+const squareSum = numbers => {
+  let acc = 0
+  for (let i = 0; i < numbers.length; i++) {
+    acc += numbers[i] ** 2
+  }
+  return acc
+}
+
+console.log(squareSum([1, 2, 2]))
