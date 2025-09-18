@@ -28,14 +28,7 @@ const makeNegative = num => {
 // Задача
 // Вы получили массив чисел и вернули сумму всех положительных единиц.
 // Пример
-// [1, -4, 7, 12] =>
-// 1
-// +
-// 7
-// +
-// 12
-// =
-// 20
+// [1, -4, 7, 12] => 1 + 7 + 12 = 20
 // 1+7+12=20
 // Примечание
 // Если суммировать нечего, сумма по умолчанию равна 0.
@@ -93,15 +86,15 @@ const boolToWord = bool => {
 // Дополните функцию квадратной суммы так, чтобы она возводила в квадрат каждое переданное ей число, а затем суммировала результаты.
 // Например, для [1, 2, 2] она должна вернуть 9, потому что [1, 2, 2] = 9
 
-// const squareSum = numbers => {
-//   let acc = 0
-//   for (let i = 0; i < numbers.length; i++) {
-//     acc += numbers[i] ** 2
-//   }
-//   return acc
-// }
-
 const squareSum = numbers => {
+  let acc = 0
+  for (let i = 0; i < numbers.length; i++) {
+    acc += numbers[i] ** 2
+  }
+  return acc
+}
+
+const squareSum1 = numbers => {
   return numbers.reduce(
     (accumulator, currentValue) => currentValue ** 2 + accumulator,
     0
@@ -121,19 +114,30 @@ const squareSum = numbers => {
 // 'ab' --> '' (пустая строка)
 // 'xyz' --> 'y'
 
-// const removeChar = str => {
-//   if (str.length < 2) {
-//     return ''
-//   } else {
-//     return str.slice(1, -1)
-//   }
-// }
+const removeChar = str => {
+  if (str.length < 2) {
+    return ''
+  } else {
+    return str.slice(1, -1)
+  }
+}
 
 // напиши циклом for для себя еще!!!!
+const removeChar1 = str => {
+  let res = ''
+  if (str.length < 2) {
+    return ''
+  } else {
+    for (let i = 1; i < str.length - 1; i++) {
+      res += str[i]
+    }
+  }
+  return res
+}
 
-const removeChar = str => (str.length < 2 ? '' : str.slice(1, -1))
+const removeChar2 = str => (str.length < 2 ? '' : str.slice(1, -1))
 
-// console.log(removeChar('ab'))
+// console.log(removeChar1('eloquent'))
 
 // Очень просто: дано число (целое / десятичное / и то, и другое в зависимости от языка), найти его противоположность (обратное по аддитивности).
 // Примеры:
@@ -188,6 +192,129 @@ const findSmallestInt = arr => {
   return arr.length === 0 ? 0 : arr.sort((a, b) => a - b)[0]
 }
 
-// реши при помощи for, reduce, Math.min
+// for,
+const findSmallestInt1 = arr => {
+  let min = arr[0]
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i]
+    }
+  }
+  return min
+}
 
-console.log(findSmallestInt([]))
+// reduce
+
+const findSmallestInt2 = arr => {
+  return arr.reduce((acc, curr) => (curr < acc ? curr : acc), arr[0])
+}
+
+// Math.min
+
+const findSmallestInt3 = arr => {
+  return Math.min(...arr)
+}
+
+// при помощи метода map превращаем все элементы массива в числа, включая строки. Потом преобразуем в число
+const findSmallestInt4 = arr => {
+  return Math.min(...arr.map(Number))
+}
+
+// console.log(findSmallestInt([]))
+
+// Напишите функцию, которая удаляет пробелы из строки и возвращает полученную строку.
+// Примеры (Вход -> Выход):
+
+// "8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+// "8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+// "8aaaaa dddd r     " -> "8aaaaaddddr"
+
+const noSpace = x => x.replaceAll(' ', '')
+
+const noSpace1 = x => {
+  return x
+    .split('')
+    .filter(item => item !== ' ')
+    .join('')
+}
+// через регулярное выражение
+function noSpace2(x) {
+  return x.replace(/\s/g, '')
+}
+
+// через for
+const noSpace3 = x => {
+  let acc = ''
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] !== ' ') {
+      acc += x[i]
+    }
+  }
+  return acc
+}
+// console.log(noSpace3('8 j 8   mBliB8g  imjB8B8  jl  B'))
+
+// Рассмотрим массив/список овец, в котором некоторые овцы могут отсутствовать на своих местах. Нам нужна функция, которая подсчитывает количество овец в массиве (true означает наличие).
+// Например,
+// [true, true, true, false,
+// true, true, true, true,
+// true, false, true, false,
+// true, false, false, true,
+// true, true, true, true,
+// false, false, true, true]
+// Правильный ответ — 17.
+// Подсказка: Не забудьте проверить на наличие недопустимых значений, таких как null/undefined.
+
+// for
+const countSheeps = sheep => {
+  let acc = 0
+  for (let i = 0; i < sheep.length; i++) {
+    if (sheep[i]) {
+      acc++
+    }
+  }
+  return acc
+}
+
+// reduce
+const countSheeps1 = sheep => {
+  return sheep.reduce((acc, item) => {
+    return acc + (item ? 1 : 0)
+  }, 0)
+}
+
+// filter
+const countSheeps2 = sheep => {
+  return sheep.filter(item => item).length
+}
+
+console.log(
+  countSheeps1([
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+  ])
+)
