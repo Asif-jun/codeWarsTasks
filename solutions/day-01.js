@@ -288,33 +288,78 @@ const countSheeps2 = sheep => {
   return sheep.filter(item => item).length
 }
 
-console.log(
-  countSheeps1([
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    true,
-    false,
-    true,
-    false,
-    false,
-    true,
-    true,
-    true,
-    true,
-    true,
-    false,
-    false,
-    true,
-    true,
-  ])
-)
+// Примечание: Эта ката вдохновлена ​​функцией «Преобразовать число в строку!». Попробуйте и её.
+// Описание
+// Нам нужна функция, которая преобразует строку в число. Какие способы сделать это вы знаете?
+// Примечание: Не волнуйтесь, все входные данные будут строками, и каждая строка — это совершенно допустимое представление целого числа.
+// Примеры
+// "1234" --> 1234
+// "605" --> 605
+// "1405" --> 1405
+// "-7" --> -7
+
+const stringToNumber = str => {
+  return parseFloat(str)
+}
+
+// console.log(stringToNumber('1405'))
+
+// Ваша задача — создать функцию, которая выполняет четыре основные математические операции.
+// Функция должна принимать три аргумента: операция(строка/символ), значение1(число), значение2(число).
+// Функция должна возвращать числовой результат после применения выбранной операции.
+// Примеры(Оператор, значение1, значение2) --> результат
+// ('+', 4, 7) --> 11
+// ('-', 15, 18) --> -3
+// ('*', 5, 5) --> 25
+// ('/', 49, 7) --> 7
+
+const basicOp = (operation, value1, value2) => {
+  if (operation === '+') {
+    return value1 + value2
+  }
+  if (operation === '-') {
+    return value1 - value2
+  }
+  if (operation === '*') {
+    return value1 * value2
+  }
+  if (operation === '/') {
+    return value1 / value2
+  }
+}
+
+const basicOp1 = (operation, value1, value2) => {
+  switch (operation) {
+    case '+':
+      return value1 + value2
+    case '-':
+      return value1 - value2
+    case '*':
+      return value1 * value2
+    case '/':
+      return value1 / value2
+    default:
+      return 0
+  }
+}
+
+// console.log(basicOp('/', 49, 7))
+
+// Напишите функцию для преобразования имени в инициалы. Эта ката принимает строго два слова с одним пробелом между ними.
+// Вывод должен состоять из двух заглавных букв, разделенных точкой.
+// Выглядеть это должно примерно так:
+// Сэм Харрис => S.H
+// Патрик Фини => P.F
+
+const abbrevName = name =>
+  name.split(' ')[0][0].toUpperCase() +
+  '.' +
+  name.split(' ')[1][0].toUpperCase()
+
+// best
+function abbrevName(name) {
+  return name
+    .split(' ')
+    .map(i => i[0].toUpperCase())
+    .join('.')
+}
