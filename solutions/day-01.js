@@ -424,3 +424,24 @@ const digitize = n => String(n).split('').reverse().map(Number)
 const lovefunc = (flower1, flower2) => {
   return flower1 % 2 !== flower2 % 2
 }
+
+// Создайте функцию, которая принимает параметр, представляющий имя, и возвращает сообщение: «Привет, <имя>, как дела?».
+// [Убедитесь, что вы вводите именно то, что я написал, иначе программа может работать некорректно]
+
+const greet = name => {
+  return `Hello, ${name} how are you doing today?`
+}
+
+// console.log(greet('Dick'))
+
+// Создайте простую функцию greet, которая возвращает знаменитое «Hello World!».
+// Очки стиля
+// Конечно, это проще простого. Но насколько вы умны, чтобы создать самое креативное «Hello World», какое только сможете придумать? Какое решение для «Hello World» вы бы хотели показать своим друзьям?
+
+// const helloGreet = wor => wor.toUpperCase().repeat(10).split('')
+// console.log(helloGreet('Hello World!'))
+
+// const helloGreet = () => Array(10).fill('HELLO WORLD!')
+// console.log(helloGreet())
+
+const greet1 = () => 'hello world!'
