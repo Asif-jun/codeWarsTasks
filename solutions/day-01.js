@@ -445,3 +445,35 @@ const greet = name => {
 // console.log(helloGreet())
 
 const greet1 = () => 'hello world!'
+
+// Сможете ли вы найти иголку в стоге сена?
+// Напишите функцию findNeedle(), которая принимает массив, полный мусора, но содержащий одну «иголку».
+// После того, как ваша функция найдёт иголку, она должна вернуть сообщение (в виде строки):
+// «найдена иголка в позиции «» плюс индекс, по которому иголка была найдена, то есть:
+// Пример (Вход -> Выход)
+// ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5"
+
+const findNeedle = haystack => {
+  sum = haystack.findIndex(el => {
+    return el === 'needle'
+  })
+  return `found the needle at position ${sum}`
+}
+
+// console.log(
+//   findNeedle(['hay', 'junk', 'hay', 'hay', 'moreJunk', 'needle', 'randomJunk'])
+// )
+
+// Создайте функцию, которая отвечает на вопрос «Вы играете на банджо?».
+// Если ваше имя начинается с буквы «R» или строчной «r», вы играете на банджо!
+// Функция принимает имя в качестве единственного аргумента и возвращает одну из следующих строк:
+// name + " plays banjo"
+// name + " does not play banjo"
+// Указанные имена всегда являются допустимыми строками.
+
+const areYouPlayingBanjo = name =>
+  name[0].toLowerCase() === 'r'
+    ? `${name} plays banjo`
+    : `${name} does not play banjo`
+
+console.log(areYouPlayingBanjo('Rld'))
