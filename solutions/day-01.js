@@ -476,4 +476,19 @@ const areYouPlayingBanjo = name =>
     ? `${name} plays banjo`
     : `${name} does not play banjo`
 
-console.log(areYouPlayingBanjo('Rld'))
+// console.log(areYouPlayingBanjo('Rld'))
+
+const paperwork = (n, m) => {
+  if (n < 0 || m < 0) {
+    return 0
+  }
+  return n * m
+}
+
+// console.log(paperwork(5, 5))
+
+const maps = x => {
+  return x.map(num => num * 2)
+}
+
+console.log(maps([1, 2, 3]))
