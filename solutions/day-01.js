@@ -529,3 +529,22 @@ const sum = numbers => {
 // Примечание: Будут предоставлены только допустимые входные данные.
 
 const booleanToString = b => (b !== true ? 'false' : 'true')
+
+// Создайте функцию, которая проверяет, делится ли число n на два числа x и y. Все входные данные — положительные, ненулевые числа.
+// 1) n =   3, x = 1, y = 3 =>  true because   3 is divisible by 1 and 3
+// 2) n =  12, x = 2, y = 6 =>  true because  12 is divisible by 2 and 6
+
+const isDivisible = (n, x, y) => n % x === 0 && n % y === 0
+
+// В вашем классе был тест, и вы его сдали. Поздравляем!
+// Но вы амбициозный человек. Вы хотите узнать, лучше ли вы, чем средний ученик в вашем классе.
+// Вы получаете массив с результатами тестов ваших одноклассников. Теперь вычислите средний балл и сравните его!
+// Верните true, если вы лучше, иначе false!
+// Примечание:
+// Ваши баллы не включаются в массив баллов вашего класса. Не забудьте их при вычислении среднего балла!
+
+const betterThanAverage = (classPoints, yourPoints) => {
+  const sum = classPoints.reduce((acc, item) => acc + item, 0)
+  const average = sum / classPoints.length
+  return yourPoints > average
+}
