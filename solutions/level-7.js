@@ -150,7 +150,7 @@ const accum = s => {
 
 // Изограмма — это слово, в котором нет повторяющихся букв, как последовательных, так и непоследовательных. Реализуйте функцию, которая определяет, является ли строка, содержащая только буквы, изограммой. Предположим, что пустая строка — изограмма. Регистр букв не учитывается.
 
-Example: Input-- > Output
+// Example: Input-- > Output
 
 const isIsogram = str => {
   const letters = str.toLowerCase().split('')
@@ -160,4 +160,46 @@ const isIsogram = str => {
 
 const isIsogram1 = str => {
   return new Set(str.toUpperCase()).size == str.length
+}
+
+// Проверьте, содержит ли строка одинаковое количество символов «x» и «o». Метод должен возвращать логическое значение и быть нечувствительным к регистру. Строка может содержать любые символы.
+// Примеры ввода/вывода:
+// XO("ooxx") => true
+// XO("xooxx") => false
+// XO("ooxXm") => true
+// XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+// XO("zzoo") => false
+
+const XO = str => {
+  const strLower = str.toLowerCase().split('')
+  const countX = strLower.filter(el => el === 'x').length
+  const countO = strLower.filter(el => el === 'o').length
+  return countX === countO
+}
+
+const XO1 = str =>
+  (str.match(/x/gi) || []).length === (str.match(/o/gi) || []).length
+
+// Джейден Смит, сын Уилла Смита, — звезда таких фильмов, как «Каратэ-пацан» (2010) и «После нашей эры» (2013). Джейден также известен своими философскими высказываниями, которые он распространяет в Твиттере. В Твиттере он практически всегда пишет каждое слово с заглавной буквы. Для простоты вам придётся писать каждое слово с заглавной буквы. Посмотрите, как должны выглядеть сокращения, в примере ниже.
+// Ваша задача — преобразовать строки в то, как их написал бы Джейден Смит. Эти строки — настоящие цитаты Джейдена Смита, но они написаны не с заглавной буквы, как он изначально.
+// Пример:
+// Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+// Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+Object.defineProperty(String.prototype, 'toJadenCase', {
+  value: function () {
+    return this.split(' ')
+      .map(word => word[0].toUpperCase() + word.slice(1))
+      .join(' ')
+  },
+  writable: true,
+  configurable: true,
+})
+
+const jC = sls => {
+  return sls
+    .split(' ')
+    .filter(el => el.length > 0)
+    .map(el => el[0].toUpperCase() + el.slice(1))
+    .join(' ')
 }
